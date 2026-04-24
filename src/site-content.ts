@@ -4,6 +4,7 @@ import { WorkshopLayout } from "./sections/workshop/layout";
 import { PersonasLayout } from "./sections/personas/layout";
 import { ProofLayout } from "./sections/proof/layout";
 import { BridgeLayout } from "./sections/bridge/layout";
+import { OwnershipLayout } from "./sections/ownership/layout";
 import { CloserLayout } from "./sections/closer/layout";
 import { EcosystemLayout } from "./sections/ecosystem";
 
@@ -125,6 +126,30 @@ export default {
         body: { label: "Body", type: "string" },
         linkLabel: { label: "Link label", type: "string" },
         linkHref: { label: "Link href", type: "string" },
+      },
+    },
+    ownership: {
+      description:
+        "Rizom ownership section — split about block with stacked people cards",
+      title: "Ownership Section",
+      layout: OwnershipLayout,
+      fields: {
+        kicker: { label: "Kicker", type: "string" },
+        headline: { label: "Headline", type: "string" },
+        cards: {
+          label: "Cards",
+          type: "array",
+          minItems: 1,
+          items: {
+            label: "Card",
+            type: "object",
+            fields: {
+              badge: { label: "Badge", type: "string" },
+              title: { label: "Title", type: "string" },
+              body: { label: "Body", type: "string" },
+            },
+          },
+        },
       },
     },
     closer: {

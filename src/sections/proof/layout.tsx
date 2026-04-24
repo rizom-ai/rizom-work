@@ -1,10 +1,6 @@
 import type { JSX } from "preact";
 import { Section } from "@rizom/ui";
-import {
-  WORK_DISPLAY_QUOTE,
-  WORK_SECTION_HEADLINE,
-  WORK_SECTION_KICKER,
-} from "../styles";
+import { WORK_KICKER, WORK_RULE } from "../styles";
 import type { ProofContent } from "./schema";
 
 export const ProofLayout = ({
@@ -16,47 +12,35 @@ export const ProofLayout = ({
   partners,
 }: ProofContent): JSX.Element => {
   return (
-    <Section id="proof" className="reveal py-section">
-      <div className="mx-auto max-w-[1120px]">
-        <div className="mx-auto mb-10 max-w-[720px] text-center md:mb-12">
-          <div className="mb-6 h-px w-12 bg-accent/70" />
-          <span className={`${WORK_SECTION_KICKER} mb-4`}>{kicker}</span>
-          <h2 className={`${WORK_SECTION_HEADLINE} max-w-[12ch]`}>
-            {headline}
-          </h2>
-        </div>
+    <Section id="proof" className="reveal py-[128px] text-center max-[768px]:py-20">
+      <div className={`${WORK_RULE} mb-16 -mt-16 max-[768px]:-mt-10 max-[768px]:mb-12`} />
 
-        <blockquote className="relative mx-auto mb-14 max-w-[720px] bg-transparent px-0 py-8 text-left md:mb-24 md:px-10 md:py-10">
-          <p
-            className={`${WORK_DISPLAY_QUOTE} relative mb-7 max-w-[24ch] pl-0 text-[clamp(24px,3vw,38px)] leading-[1.28] md:pl-14`}
-          >
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -top-7 -left-[10px] font-display text-[112px] leading-none text-accent/35 md:-top-10 md:-left-[6px] md:text-[180px]"
-            >
-              “
+      <div className="mx-auto mb-20 max-w-[720px] text-center max-[768px]:mb-14">
+        <span className={`${WORK_KICKER} mb-3`}>{kicker}</span>
+        <h2 className="mt-3 font-display text-[clamp(32px,4.5vw,56px)] font-[520] leading-[1.05] tracking-[-1.4px] text-theme max-[768px]:text-[30px] max-[768px]:tracking-[-0.9px]">
+          {headline}
+        </h2>
+      </div>
+
+      <blockquote className="relative mx-auto mb-24 max-w-[720px] px-10 text-left max-[768px]:mb-16 max-[768px]:px-4">
+        <p className="relative mb-7 pl-14 font-display text-[clamp(24px,3vw,38px)] italic leading-[1.28] tracking-[-0.6px] text-theme before:absolute before:-left-1.5 before:-top-10 before:font-display before:text-[180px] before:font-medium before:leading-none before:text-accent/35 before:content-['\u201C'] max-[768px]:pl-8 max-[768px]:text-[22px] max-[768px]:before:-left-1 max-[768px]:before:-top-6 max-[768px]:before:text-[120px]">
+          {quote}
+        </p>
+        <footer className="pl-14 font-label text-[12px] font-semibold uppercase tracking-[1.8px] text-theme-muted max-[768px]:pl-8">
+          {attribution}
+        </footer>
+      </blockquote>
+
+      <div className="mx-auto flex max-w-[720px] flex-col items-center gap-7">
+        <span className="font-label text-[10px] font-semibold uppercase tracking-[2.5px] text-theme-light">
+          {partnersLabel}
+        </span>
+        <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 max-[768px]:gap-x-6">
+          {partners.map((partner) => (
+            <span key={partner} className="font-display text-[20px] italic text-theme-muted transition-colors hover:text-accent max-[768px]:text-[16px]">
+              {partner}
             </span>
-            {quote}
-          </p>
-          <footer className="mt-5 pl-0 text-[12px] font-semibold uppercase tracking-[1.8px] text-theme-muted md:pl-14">
-            {attribution}
-          </footer>
-        </blockquote>
-
-        <div className="mt-8 md:mt-10 border-t border-white/10 pt-6 md:pt-8">
-          <div className="mb-4 font-label text-[10px] uppercase tracking-[2.5px] text-theme-light">
-            {partnersLabel}
-          </div>
-          <div className="flex flex-wrap justify-center gap-12 text-body-sm text-theme-muted md:text-body-md">
-            {partners.map((partner) => (
-              <span
-                key={partner}
-                className="font-display text-[20px] italic text-theme-muted transition-colors hover:text-accent"
-              >
-                {partner}
-              </span>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </Section>
