@@ -4,6 +4,7 @@ import { WorkshopLayout } from "./sections/workshop/layout";
 import { PersonasLayout } from "./sections/personas/layout";
 import { ProofLayout } from "./sections/proof/layout";
 import { BridgeLayout } from "./sections/bridge/layout";
+import { CredibilityLayout } from "./sections/credibility/layout";
 import { OwnershipLayout } from "./sections/ownership/layout";
 import { CloserLayout } from "./sections/closer/layout";
 import { EcosystemLayout } from "./sections/ecosystem";
@@ -76,6 +77,28 @@ export default {
         ctaHref: { label: "CTA href", type: "string" },
       },
     },
+    credibility: {
+      description: "Rizom credibility section — TMS methodology proof cards",
+      title: "Credibility Section",
+      layout: CredibilityLayout,
+      fields: {
+        kicker: { label: "Kicker", type: "string" },
+        headline: { label: "Headline", type: "string" },
+        cards: {
+          label: "Cards",
+          type: "array",
+          minItems: 1,
+          items: {
+            label: "Card",
+            type: "object",
+            fields: {
+              title: { label: "Title", type: "string" },
+              body: { label: "Body", type: "string" },
+            },
+          },
+        },
+      },
+    },
     personas: {
       description: "Rizom personas section — who the workshop is for",
       title: "Personas Section",
@@ -100,20 +123,24 @@ export default {
       },
     },
     proof: {
-      description: "Rizom proof section — testimonial and partners",
+      description: "Rizom proof section — testimonials",
       title: "Proof Section",
       layout: ProofLayout,
       fields: {
         kicker: { label: "Kicker", type: "string" },
         headline: { label: "Headline", type: "string" },
-        quote: { label: "Quote", type: "string" },
-        attribution: { label: "Attribution", type: "string" },
-        partnersLabel: { label: "Partners label", type: "string" },
-        partners: {
-          label: "Partners",
+        testimonials: {
+          label: "Testimonials",
           type: "array",
           minItems: 1,
-          items: { label: "Partner", type: "string" },
+          items: {
+            label: "Testimonial",
+            type: "object",
+            fields: {
+              quote: { label: "Quote", type: "string" },
+              attribution: { label: "Attribution", type: "string" },
+            },
+          },
         },
       },
     },

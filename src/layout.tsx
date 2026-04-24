@@ -48,26 +48,28 @@ function socialLinksToWorkLinks(
 }
 
 const NAV_LINKS = [
-  { href: "#workshop", label: "Methodology" },
-  { href: "#personas", label: "Who it's for" },
+  { href: "#workshop", label: "Workshop" },
+  { href: "#cta", label: "Contact" },
   { href: "#about", label: "About" },
 ];
 
 const PRIMARY_CTA = {
-  href: "#cta",
+  href: "https://typeform.com",
   label: "Take the quiz",
 };
 
 const FOOTER_LINKS = [
-  { href: "https://rizom.foundation", label: "Foundation" },
-  { href: "https://typeform.com", label: "Team Type quiz" },
+  { href: "#workshop", label: "The workshops" },
+  { href: "https://rizom.foundation", label: "The research" },
+  { href: "https://rizom.ai", label: "The platform" },
 ];
 
 const SIDE_NAV_ITEMS = [
   { href: "#hero", label: "Intro" },
   { href: "#problem", label: "Problem" },
   { href: "#workshop", label: "Workshop" },
-  { href: "#personas", label: "People" },
+  { href: "#methodology", label: "Methodology" },
+  { href: "#personas", label: "Fit" },
   { href: "#proof", label: "Proof" },
   { href: "#about", label: "About" },
 ];
@@ -98,7 +100,7 @@ export const WorkLayout = ({
       links={[
         ...FOOTER_LINKS,
         ...socialLinksToWorkLinks(siteInfo, ["linkedin"]),
-        { href: "#cta", label: "Contact" },
+        { href: "mailto:hello@rizom.ai", label: "Email" },
       ]}
     />
   </RizomFrame>

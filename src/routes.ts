@@ -25,6 +25,11 @@ export const workRoutes = [
         content: {},
       },
       {
+        id: "credibility",
+        template: "landing-page:credibility",
+        content: {},
+      },
+      {
         id: "personas",
         template: "landing-page:personas",
         content: {},
@@ -35,37 +40,9 @@ export const workRoutes = [
         content: {},
       },
       {
-        id: "bridge",
-        template: "landing-page:bridge",
-        content: {},
-      },
-      {
         id: "ownership",
         template: "landing-page:ownership",
-        content: {
-          kicker: "Who We Are",
-          headline: "A commercial practice with a non-profit research arm.",
-          cards: [
-            {
-              badge: "JH",
-              title: "Jan Hein Hoogstad — founder",
-              body:
-                "Philosopher and ecosystem architect. Founded rizom.work as the commercial face so the research at rizom.foundation could stay independent and openly funded. The two sides feed each other.",
-            },
-            {
-              badge: "N",
-              title: "Natalie — workshop lead",
-              body:
-                "Runs the TMS sessions, owns delivery, and makes sure every workshop produces something a team can act on the same week.",
-            },
-            {
-              badge: "+",
-              title: "A network of practitioners",
-              body:
-                "Co-facilitators, researchers, and operators across Amsterdam, Rotterdam, and Berlin.",
-            },
-          ],
-        },
+        content: {},
       },
       {
         id: "mission",
@@ -81,9 +58,9 @@ export const workRoutes = [
           cards: [
             {
               suffix: "work",
-              title: "The workshops",
+              title: "The consultancy",
               body:
-                "TMS workshops and team coordination practice. The commercial face that funds the research.",
+                "Organizational consultancy and team coordination practice. The commercial face that funds the research.",
               linkLabel: "You are here",
               linkHref: "/",
             },

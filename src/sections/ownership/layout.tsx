@@ -38,7 +38,8 @@ export const OwnershipLayout = ({
         </div>
         <div className="flex w-[58%] flex-col gap-10 pt-16 max-[768px]:w-full max-[768px]:gap-8 max-[768px]:pt-0">
           {cards.map((card, index) => {
-            const badge = card.badge.trim() || (index === 2 ? "+" : "");
+            const badge = card.badge.trim() || (card.title.startsWith("A network") ? "+" : "");
+            const body = card.body?.trim();
             return (
               <div key={card.title} className={`reveal reveal-delay-${index + 1} flex items-start gap-[22px] max-[768px]:gap-[18px]`}>
                 <div className="flex h-12 min-w-12 items-center justify-center rounded-lg border border-accent px-3 font-display text-[16px] font-semibold tracking-[-0.3px] text-accent max-[768px]:h-11 max-[768px]:min-w-11 max-[768px]:text-[15px]">
@@ -48,9 +49,11 @@ export const OwnershipLayout = ({
                   <div className="mb-1.5 font-display text-[20px] font-[520] text-theme max-[768px]:text-[18px]">
                     {card.title}
                   </div>
-                  <p className="font-body text-[15px] leading-[1.72] text-theme-muted max-[768px]:text-[14px] max-[768px]:leading-[1.68]">
-                    {renderBody(card.body)}
-                  </p>
+                  {body ? (
+                    <p className="font-body text-[15px] leading-[1.72] text-theme-muted max-[768px]:text-[14px] max-[768px]:leading-[1.68]">
+                      {renderBody(body)}
+                    </p>
+                  ) : null}
                 </div>
               </div>
             );
