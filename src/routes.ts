@@ -52,36 +52,7 @@ export const workRoutes = [
       {
         id: "ecosystem",
         template: "landing-page:ecosystem",
-        content: {
-          eyebrow: "The Ecosystem",
-          headline: "One ecosystem. The platform, the vision, the network.",
-          cards: [
-            {
-              suffix: "work",
-              title: "The consultancy",
-              body:
-                "Organizational consultancy and team coordination practice. The commercial face that funds the research.",
-              linkLabel: "You are here",
-              linkHref: "/",
-            },
-            {
-              suffix: "foundation",
-              title: "The research",
-              body:
-                "Essays, events, and public infrastructure. The non-profit research arm where the ideas come from.",
-              linkLabel: "Read the manifesto →",
-              linkHref: "https://rizom.foundation",
-            },
-            {
-              suffix: "ai",
-              title: "The platform",
-              body:
-                "Open-source AI agents built from your own knowledge — the technical layer behind the coordination methodology.",
-              linkLabel: "See the platform →",
-              linkHref: "https://rizom.ai",
-            },
-          ],
-        },
+        content: {},
       },
     ],
   },
