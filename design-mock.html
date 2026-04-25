@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>rizom.work — design mock</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Barlow', system-ui, sans-serif;
+    --font-label: 'Barlow', system-ui, sans-serif;
+    --font-nav: 'Barlow', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --color-bg: #0a0814;
+    --color-bg-deep: #07050f;
+    --color-text: #f4ecd8;
+    --color-text-muted: rgba(244, 236, 216, 0.7);
+    --color-text-light: rgba(244, 236, 216, 0.45);
+    --color-divider-soft: rgba(244, 236, 216, 0.08);
+    --color-divider: rgba(244, 236, 216, 0.14);
+    --color-accent: #e0a83a;
+    --color-accent-bright: #f3c14f;
+    --color-accent-soft: rgba(224, 168, 58, 0.18);
+    --color-accent-faint: rgba(224, 168, 58, 0.08);
+    --color-secondary: #d6cfb8;
+    --color-panel-text: rgba(255, 255, 255, 0.86);
+    --color-panel-border: rgba(255, 255, 255, 0.12);
+    --color-panel-border-soft: rgba(255, 255, 255, 0.18);
+
+    --panel-bg: linear-gradient(180deg, rgba(22,16,40,0.97) 0%, rgba(14,10,26,0.97) 100%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-image:
+      radial-gradient(1200px 700px at 80% -10%, rgba(224,168,58,0.07), transparent 60%),
+      radial-gradient(900px 600px at 10% 110%, rgba(184,155,108,0.05), transparent 60%);
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* NAV */
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(10,8,20,0.7);
+    border-bottom: 1px solid var(--color-divider-soft);
+  }
+  nav.top .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-variation-settings: 'opsz' 24;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+  }
+  .brand .dot { color: var(--color-accent); }
+  .brand .work { color: var(--color-text-muted); font-style: italic; font-weight: 400; }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a.cta {
+    border: 1px solid var(--color-text-muted);
+    padding: 9px 18px;
+    border-radius: 8px;
+    color: var(--color-text);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: var(--font-label);
+  }
+
+  /* KICKER */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-label);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+  .kicker::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.8;
+  }
+
+  /* HAIRLINE RULE */
+  .rule {
+    width: 64px;
+    height: 1px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, rgba(224,168,58,0.5), transparent);
+  }
+
+  /* ============== HERO ============== */
+  section.hero {
+    padding: 140px 0 96px;
+    position: relative;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .hero-text .kicker { margin-bottom: 28px; }
+
+  .hero-headline {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings: 'opsz' 96, 'SOFT' 50;
+    font-weight: 380;
+    font-size: clamp(36px, 5.2vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    max-width: 14ch;
+    margin-bottom: 28px;
+  }
+  .hero-headline em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent);
+  }
+
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    max-width: 500px;
+    margin-bottom: 36px;
+  }
+
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 10px;
+    border: 1px solid;
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.005em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-color: var(--color-accent);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 30px -12px rgba(224,168,58,0.45); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-divider);
+  }
+  .btn-secondary:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+  /* DIAGNOSTIC PANEL */
+  .diagnostic {
+    position: relative;
+    border: 1px solid rgba(224,168,58,0.3);
+    border-radius: 16px;
+    padding: 28px 30px 24px;
+    background-image: var(--panel-bg);
+    box-shadow:
+      0 32px 80px -24px rgba(0,0,0,0.7),
+      inset 0 1px 0 rgba(255,255,255,0.05);
+    backdrop-filter: blur(14px);
+    overflow: hidden;
+  }
+  .diagnostic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+  }
+  .diagnostic > * { position: relative; z-index: 1; }
+  .diagnostic-bar {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 2px;
+    border-radius: 16px 16px 0 0;
+    background: linear-gradient(90deg, transparent, var(--color-accent) 25%, #f3c14f 50%, var(--color-accent) 75%, transparent);
+    z-index: 2;
+  }
+
+  .diag-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--color-panel-border);
+    padding-bottom: 16px;
+    margin-bottom: 12px;
+  }
+  .diag-mono {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--color-accent-bright);
+    font-weight: 500;
+  }
+  .diag-mono.muted {
+    color: var(--color-text-light);
+    letter-spacing: 0.14em;
+  }
+
+  .diag-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-top: 1px solid var(--color-panel-border);
+    padding: 18px 0;
+    gap: 20px;
+  }
+  .diag-row .label-mono {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-text-light);
+  }
+  .diag-row .value-display {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-variation-settings: 'opsz' 96;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    color: var(--color-text);
+  }
+
+  .diag-actions {
+    border-top: 1px solid var(--color-panel-border);
+    padding-top: 18px;
+  }
+  .diag-actions-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .diag-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .diag-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-panel-text);
+  }
+  .diag-list .num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(224,168,58,0.8);
+    min-width: 26px;
+  }
+
+  .diag-cta {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    padding: 12px;
+    border: 1px solid var(--color-panel-border-soft);
+    border-radius: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-panel-text);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .diag-cta:hover {
+    border-color: var(--color-accent);
+    background: rgba(255,255,255,0.04);
+    color: var(--color-text);
+  }
+
+  .radar-frame { position: relative; margin: 8px 0; }
+
+  .radar-svg { display: block; width: 100%; height: auto; }
+  .radar-ring { fill: none; stroke: rgba(255,255,255,0.13); stroke-width: 1.2; }
+  .radar-ring.outer { stroke: rgba(255,255,255,0.26); stroke-width: 1.5; }
+  .radar-axis { stroke: rgba(255,255,255,0.11); stroke-width: 1.2; stroke-dasharray: 2 4; }
+  .radar-gap { stroke: rgba(224,168,58,0.4); stroke-width: 1.2; stroke-dasharray: 2 3; stroke-linecap: round; }
+  .radar-fill {
+    fill: rgba(224,168,58,0.2);
+    stroke: var(--color-accent);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+  }
+  .radar-node { fill: white; stroke: var(--color-bg); stroke-width: 2; }
+  .radar-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    fill: rgba(255,255,255,0.64);
+  }
+  .radar-score {
+    font-family: var(--font-display);
+    font-variation-settings: 'opsz' 96;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    fill: white;
+  }
+
+  .pulse-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    animation: pulse-dot 1.6s ease-in-out infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+
+  .diag-findings-meta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-text-light);
+  }
+  .diag-findings-meta .arrow { color: rgba(255,255,255,0.35); }
+  .diag-findings-meta .axis { color: rgba(224,168,58,0.85); }
+  .diag-findings-meta .score {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    color: rgba(224,168,58,0.95);
+  }
+  .diag-findings-meta .score .unit {
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-left: 2px;
+  }
+
+  /* ============== PERSONAS ============== */
+  section.personas {
+    padding: 128px 0;
+    border-top: 1px solid var(--color-divider-soft);
+  }
+  .section-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 72px;
+  }
+  .section-head .kicker { margin: 24px 0 18px; }
+  .section-headline {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings: 'opsz' 96;
+    font-weight: 380;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -0.018em;
+    color: var(--color-text);
+  }
+  .section-headline em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent);
+  }
+
+  .personas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .persona {
+    border-top: 1px solid var(--color-divider);
+    padding-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: auto auto auto;
+    gap: 18px 36px;
+    align-items: start;
+  }
+
+  .persona-label {
+    grid-column: 1 / -1;
+    font-family: var(--font-label);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .persona-label .num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-text-light);
+    letter-spacing: 0.18em;
+  }
+
+  .persona-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 380;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    grid-column: 1 / 2;
+  }
+
+  .persona-radar {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+    align-self: start;
+  }
+  .persona-radar svg { width: 100%; height: auto; }
+  .persona-radar-caption {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-top: 10px;
+  }
+  .persona-radar-caption strong {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: -0.005em;
+    color: var(--color-text);
+    margin-top: 4px;
+    text-transform: none;
+  }
+
+  .persona-body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.72;
+    color: var(--color-text-muted);
+    grid-column: 1 / 2;
+    max-width: 480px;
+  }
+
+  /* ============== ECOSYSTEM (typographic 3-up) ============== */
+  section.ecosystem {
+    padding: 112px 0 144px;
+    border-top: 1px solid var(--color-divider-soft);
+  }
+
+  .ecosystem-intro {
+    max-width: 1180px;
+    margin: 0 auto 88px;
+    text-align: center;
+  }
+  .ecosystem-intro .kicker { margin-bottom: 22px; }
+  .ecosystem-intro h2 {
+    font-family: var(--font-display);
+    font-weight: 380;
+    font-variation-settings: 'opsz' 96;
+    font-size: clamp(34px, 4.4vw, 60px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 22px;
+  }
+  .ecosystem-intro h2 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent);
+  }
+  .ecosystem-intro p {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .ecosystem-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 64px;
+  }
+
+  .eco-block {
+    --block-color: var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    border-top: 1px solid var(--color-divider);
+    padding-top: 28px;
+    transition: border-color 0.3s ease;
+  }
+  .eco-block.is-foundation { --block-color: var(--color-secondary); }
+  .eco-block.is-ai { --block-color: var(--color-accent-bright); }
+  a.eco-block:hover { border-top-color: var(--block-color); }
+  a.eco-block:hover .eco-block-link { color: var(--block-color); border-bottom-color: var(--block-color); }
+
+
+  .eco-block.current { border-top-color: var(--block-color); }
+  .eco-block-here {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-accent);
+    align-self: flex-start;
+    margin-top: 18px;
+    padding-bottom: 4px;
+  }
+
+  .eco-block-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-variation-settings: 'opsz' 96;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+  .eco-block-name .dot { color: var(--block-color); }
+  .eco-block-name .suffix { color: var(--color-text-muted); font-style: italic; font-weight: 400; }
+
+  .eco-block-role {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: var(--block-color);
+    margin-top: 4px;
+  }
+
+  .eco-block-tagline {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-top: 8px;
+  }
+
+  .eco-block-link {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-divider);
+    padding-bottom: 4px;
+    align-self: flex-start;
+    margin-top: 18px;
+    transition: all 0.2s ease;
+  }
+
+  /* FOOTER */
+  footer.bottom {
+    padding: 32px;
+    border-top: 1px solid var(--color-divider-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-text-light);
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* MOCK BANNER */
+  .mock-banner {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 100;
+    background: rgba(224,168,58,0.95);
+    color: var(--color-bg-deep);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    box-shadow: 0 12px 30px -8px rgba(0,0,0,0.5);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-headline { max-width: 100%; }
+    .personas-grid { grid-template-columns: 1fr; gap: 48px; }
+    .persona { grid-template-columns: 1fr; }
+    .persona-radar { grid-column: 1; grid-row: auto; max-width: 220px; }
+    .ecosystem-grid { grid-template-columns: 1fr; gap: 0; }
+    .eco-block + .eco-block { margin-top: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <div class="brand">rizom<span class="dot">.</span><span class="work">work</span></div>
+    <div class="nav-links">
+      <a href="#methodology">Methodology</a>
+      <a href="#personas">Who it's for</a>
+      <a href="#about">About</a>
+      <a href="#cta" class="cta">Take the quiz</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="kicker">Coordination for the AI era</span>
+        <h1 class="hero-headline">Your team has a knowledge problem. AI is making it <em>visible</em>.</h1>
+        <p class="hero-sub">TMS-based consulting that helps teams coordinate better, so your people and your AI tools can actually do their best work.</p>
+        <div class="btn-row">
+          <a href="#cta" class="btn btn-primary">Take the Team Type quiz →</a>
+          <a href="#cta" class="btn btn-secondary">Book a discovery call</a>
+        </div>
+      </div>
+
+      <div class="diagnostic">
+        <div class="diagnostic-bar"></div>
+        <div class="diag-header">
+          <span class="diag-mono">Team Diagnostic</span>
+          <span class="diag-mono muted"><span class="pulse-dot"></span>sample report</span>
+        </div>
+
+        <div class="radar-frame">
+          <span class="corner-bl"></span><span class="corner-br"></span>
+          <svg class="radar-svg" viewBox="0 16 360 218" role="img" aria-label="Three-axis TMS radar — Specialization, Credibility, Coordination">
+            <polygon class="radar-ring outer" points="180,50 266.60,200 93.40,200" />
+            <polygon class="radar-fill" points="180,95 233.69,181 150.56,167" />
+            <circle class="radar-node" cx="180" cy="95" r="4" />
+            <circle class="radar-node" cx="233.69" cy="181" r="4" />
+            <circle class="radar-node" cx="150.56" cy="167" r="4" />
+            <g>
+              <text class="radar-label" x="180" y="34" text-anchor="middle">Specialization</text>
+              <text class="radar-label" x="252" y="222" text-anchor="start">Credibility</text>
+              <text class="radar-label" x="108" y="222" text-anchor="end">Coordination</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="diag-row">
+          <span class="label-mono">Your team type</span>
+          <span class="value-display">Distributed specialists</span>
+        </div>
+
+        <div class="diag-actions">
+          <div class="diag-actions-head">
+            <span class="label-mono">Priority actions</span>
+            <span class="diag-findings-meta">
+              <span class="arrow">→</span><span class="axis">Coordination</span><span class="score">34<span class="unit">/100</span></span>
+            </span>
+          </div>
+          <ul class="diag-list">
+            <li><span class="num">[01]</span><span>Clarify decision authority in the 4 highest-friction roles</span></li>
+            <li><span class="num">[02]</span><span>Surface tacit expertise via a weekly ritual</span></li>
+            <li><span class="num">[03]</span><span>Install coordination layer before further AI pilots</span></li>
+          </ul>
+          <a href="#" class="diag-cta">Run the diagnostic →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAS WITH RADAR ECHOES -->
+  <section class="personas" id="personas">
+    <div class="section-head">
+      <span class="kicker">Who this is for</span>
+      <h2 class="section-headline">If this sounds like you.</h2>
+    </div>
+
+    <div class="personas-grid">
+
+      <!-- Persona 1 -->
+      <article class="persona">
+        <div class="persona-label"><span class="num">PROFILE / 01</span><span>The scaling founder</span></div>
+
+        <p class="persona-quote">"Your team grew faster than your operating model."</p>
+
+        <div class="persona-radar">
+          <!-- Scaling founder: Spec 70, Cred 45, Coord 25 -->
+          <svg viewBox="0 0 200 200" role="img" aria-label="Scaling founder team signature">
+            <g>
+              <line class="radar-axis" x1="100" y1="100" x2="100" y2="30" />
+              <line class="radar-axis" x1="100" y1="100" x2="160.62" y2="135" />
+              <line class="radar-axis" x1="100" y1="100" x2="39.38" y2="135" />
+            </g>
+            <polygon class="radar-outline" points="100,30 160.62,135 39.38,135" />
+            <g class="radar-tick">
+              <line x1="95" y1="65" x2="105" y2="65" />
+              <line x1="127.81" y1="121.65" x2="132.81" y2="113.35" />
+              <line x1="72.19" y1="121.65" x2="67.19" y2="113.35" />
+            </g>
+            <polygon class="radar-fill" points="100,51 127.28,115.75 84.85,108.75" />
+            <circle class="radar-vertex" cx="100" cy="51" r="2.5" />
+            <circle class="radar-vertex" cx="127.28" cy="115.75" r="2.5" />
+            <circle class="radar-vertex" cx="84.85" cy="108.75" r="2.5" />
+          </svg>
+          <div class="persona-radar-caption">
+            Signature
+            <strong>Stretched specialists</strong>
+          </div>
+        </div>
+
+        <p class="persona-body">You hired smart people, gave them ownership, and now nobody's quite sure who decides what. Stand-ups have gotten longer. Projects keep getting blocked on context. You need a map, not another tool.</p>
+      </article>
+
+      <!-- Persona 2 -->
+      <article class="persona">
+        <div class="persona-label"><span class="num">PROFILE / 02</span><span>The transformation lead</span></div>
+
+        <p class="persona-quote">"You've been told to roll out AI across the org."</p>
+
+        <div class="persona-radar">
+          <!-- Transformation lead: Spec 50, Cred 75, Coord 30 -->
+          <svg viewBox="0 0 200 200" role="img" aria-label="Transformation lead team signature">
+            <g>
+              <line class="radar-axis" x1="100" y1="100" x2="100" y2="30" />
+              <line class="radar-axis" x1="100" y1="100" x2="160.62" y2="135" />
+              <line class="radar-axis" x1="100" y1="100" x2="39.38" y2="135" />
+            </g>
+            <polygon class="radar-outline" points="100,30 160.62,135 39.38,135" />
+            <g class="radar-tick">
+              <line x1="95" y1="65" x2="105" y2="65" />
+              <line x1="127.81" y1="121.65" x2="132.81" y2="113.35" />
+              <line x1="72.19" y1="121.65" x2="67.19" y2="113.35" />
+            </g>
+            <polygon class="radar-fill" points="100,65 145.47,126.25 81.81,110.5" />
+            <circle class="radar-vertex" cx="100" cy="65" r="2.5" />
+            <circle class="radar-vertex" cx="145.47" cy="126.25" r="2.5" />
+            <circle class="radar-vertex" cx="81.81" cy="110.5" r="2.5" />
+          </svg>
+          <div class="persona-radar-caption">
+            Signature
+            <strong>AI-ahead, coord-behind</strong>
+          </div>
+        </div>
+
+        <p class="persona-body">The pilots look fine, the dashboards are green, and yet the teams using the tools are quietly more frustrated than before. You suspect the problem isn't AI. It's the coordination underneath it. You'd like proof.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM (typographic 3-up) -->
+  <section class="ecosystem" id="ecosystem">
+    <div class="ecosystem-intro">
+      <span class="kicker">The ecosystem</span>
+      <h2>One practice. <em>Three faces.</em></h2>
+      <p>A non-profit that holds the methodology, a workshop arm that applies it, and an open-source platform that builds with it.</p>
+    </div>
+
+    <div class="ecosystem-grid">
+      <div class="eco-block current">
+        <span class="eco-block-name">rizom<span class="dot">.</span><span class="suffix">work</span></span>
+        <span class="eco-block-role">The service</span>
+        <p class="eco-block-tagline">Workshops and consulting that apply the methodology in live engagements.</p>
+        <span class="eco-block-here">You are here</span>
+      </div>
+
+      <a href="https://rizom.foundation" class="eco-block is-foundation">
+        <span class="eco-block-name">rizom<span class="dot">.</span><span class="suffix">foundation</span></span>
+        <span class="eco-block-role">The source</span>
+        <p class="eco-block-tagline">The non-profit that holds the IP and stewards the methodology independently.</p>
+        <span class="eco-block-link">Read the manifesto →</span>
+      </a>
+
+      <a href="https://rizom.ai" class="eco-block is-ai">
+        <span class="eco-block-name">rizom<span class="dot">.</span><span class="suffix">ai</span></span>
+        <span class="eco-block-role">The tools</span>
+        <p class="eco-block-tagline">Open-source AI agents built on the methodology, the technical layer underneath.</p>
+        <span class="eco-block-link">See the platform →</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bottom">
+  <span>rizom<span style="color:var(--color-accent)">.</span><span style="color:var(--color-text-muted)">work</span> · © 2026 · Rizom Collective</span>
+  <span>Design mock — Fraunces / Fira Code / editorial ecosystem / radar echoes</span>
+</footer>
+
+<div class="mock-banner">Design Mock</div>
+
+</body>
+</html>
