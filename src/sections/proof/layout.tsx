@@ -19,8 +19,8 @@ const QuoteMark = ({ large = false }: { large?: boolean }): JSX.Element => (
     aria-hidden="true"
     className={
       large
-        ? "pointer-events-none absolute -left-2 -top-12 font-display text-[190px] font-medium leading-none text-accent/35 max-[768px]:-left-1 max-[768px]:-top-7 max-[768px]:text-[120px]"
-        : "pointer-events-none absolute -left-1.5 -top-10 font-display text-[160px] font-medium leading-none text-accent/35 max-[768px]:-left-1 max-[768px]:-top-6 max-[768px]:text-[110px]"
+        ? "pointer-events-none absolute -left-2 -top-10 font-display font-[300] italic text-[140px] leading-none text-accent/25 max-[768px]:-left-1 max-[768px]:-top-6 max-[768px]:text-[96px]"
+        : "pointer-events-none absolute -left-1.5 -top-9 font-display font-[300] italic text-[120px] leading-none text-accent/25 max-[768px]:-left-1 max-[768px]:-top-5 max-[768px]:text-[88px]"
     }
   >
     “
@@ -64,11 +64,11 @@ export const ProofLayout = ({
                 >
                   <div className="relative">
                     <QuoteMark large />
-                    <p className="relative mb-8 pl-16 font-display text-[clamp(24px,3vw,38px)] italic leading-[1.28] tracking-[-0.7px] text-theme max-[768px]:mb-7 max-[768px]:pl-9 max-[768px]:text-[22px] max-[768px]:leading-[1.32]">
+                    <p className="relative mb-8 pl-16 font-display italic font-[380] text-[clamp(24px,3vw,38px)] leading-[1.28] tracking-[-0.7px] text-theme [font-variation-settings:'opsz'_96] max-[768px]:mb-7 max-[768px]:pl-9 max-[768px]:text-[22px] max-[768px]:leading-[1.32]">
                       {item.quote}
                     </p>
                   </div>
-                  <footer className="pl-16 font-label text-[12px] font-semibold uppercase tracking-[1.8px] text-theme-muted max-[768px]:pl-9">
+                  <footer className="pl-16 font-label text-[11px] font-medium uppercase tracking-[2px] text-theme-light max-[768px]:pl-9">
                     — {item.attribution}
                   </footer>
                 </blockquote>
@@ -99,11 +99,11 @@ export const ProofLayout = ({
             >
               <div className="relative">
                 <QuoteMark />
-                <p className="relative mb-7 pl-14 font-display text-[clamp(22px,2.7vw,34px)] italic leading-[1.3] tracking-[-0.6px] text-theme max-[768px]:pl-8 max-[768px]:text-[21px]">
+                <p className="relative mb-7 pl-14 font-display italic font-[380] text-[clamp(22px,2.7vw,34px)] leading-[1.3] tracking-[-0.6px] text-theme [font-variation-settings:'opsz'_96] max-[768px]:pl-8 max-[768px]:text-[21px]">
                   {item.quote}
                 </p>
               </div>
-              <footer className="pl-14 font-label text-[12px] font-semibold uppercase tracking-[1.8px] text-theme-muted max-[768px]:pl-8">
+              <footer className="pl-14 font-label text-[11px] font-medium uppercase tracking-[2px] text-theme-light max-[768px]:pl-8">
                 — {item.attribution}
               </footer>
             </blockquote>

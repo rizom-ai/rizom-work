@@ -7,7 +7,7 @@ import { BridgeLayout } from "./sections/bridge/layout";
 import { CredibilityLayout } from "./sections/credibility/layout";
 import { OwnershipLayout } from "./sections/ownership/layout";
 import { CloserLayout } from "./sections/closer/layout";
-import { EcosystemLayout } from "./sections/ecosystem";
+import { Ecosystem } from "@rizom/ui";
 
 export default {
   namespace: "landing-page",
@@ -24,8 +24,6 @@ export default {
         primaryCtaHref: { label: "Primary CTA href", type: "string" },
         secondaryCtaLabel: { label: "Secondary CTA label", type: "string" },
         secondaryCtaHref: { label: "Secondary CTA href", type: "string" },
-        diagnosticTitle: { label: "Diagnostic title", type: "string" },
-        diagnosticTag: { label: "Diagnostic tag", type: "string" },
         verdictLabel: { label: "Verdict label", type: "string" },
         verdictValue: { label: "Verdict value", type: "string" },
         findingsLabel: { label: "Findings label", type: "string" },
@@ -195,7 +193,7 @@ export default {
     ecosystem: {
       description: "Rizom ecosystem section — 3-card grid of sibling rizom sites",
       title: "Ecosystem Section",
-      layout: EcosystemLayout,
+      layout: Ecosystem,
       fields: {
         eyebrow: { label: "Eyebrow", type: "string" },
         headline: { label: "Headline", type: "string" },

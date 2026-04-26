@@ -3,34 +3,14 @@ import type { WorkHeroContent } from "./schema";
 import { Button, Section, renderHighlightedText } from "@rizom/ui";
 
 const HIGHLIGHT_CLS = "italic text-accent";
-const RADAR_RING_CLASS = "fill-none stroke-white/13 [stroke-width:1.2]";
 const RADAR_OUTER_RING_CLASS = "fill-none stroke-white/26 [stroke-width:1.5]";
-const RADAR_AXIS_CLASS =
-  "stroke-white/11 [stroke-width:1.2] [stroke-dasharray:2_4]";
 const RADAR_SHAPE_CLASS =
   "fill-accent/20 stroke-accent [stroke-width:2.5] [stroke-linejoin:round]";
 const RADAR_NODE_CLASS = "fill-white stroke-[var(--color-bg)] [stroke-width:2]";
-const RADAR_GAP_CLASS =
-  "stroke-accent/40 [stroke-width:1.2] [stroke-dasharray:2_3] [stroke-linecap:round]";
 const RADAR_LABEL_CLASS =
-  "font-mono text-[9px] font-semibold uppercase tracking-[1.4px] fill-white/64 md:text-[10px] md:tracking-[1.6px]";
-const RADAR_SCORE_CLASS =
-  "font-mono text-[17px] font-bold fill-white md:text-[20px]";
-
-const RADAR_RINGS = [
-  "180,125 201.65,162.5 158.35,162.5",
-  "180,100 223.30,175 136.70,175",
-  "180,75 244.95,187.5 115.05,187.5",
-] as const;
+  "font-mono text-[10px] font-semibold uppercase tracking-[1.6px] fill-white/64";
 
 const RADAR_OUTER_POINTS = "180,50 266.60,200 93.40,200";
-
-const RADAR_AXES = [
-  { x2: "180", y2: "50" },
-  { x2: "266.60", y2: "200" },
-  { x2: "93.40", y2: "200" },
-] as const;
-
 const RADAR_DATA_POINTS = "180,95 233.69,181 150.56,167";
 
 const RADAR_NODES = [
@@ -39,40 +19,10 @@ const RADAR_NODES = [
   { cx: "150.56", cy: "167" },
 ] as const;
 
-const RADAR_GAPS = [
-  { x1: "180", y1: "95", x2: "180", y2: "50" },
-  { x1: "233.69", y1: "181", x2: "266.60", y2: "200" },
-  { x1: "150.56", y1: "167", x2: "93.40", y2: "200" },
-] as const;
-
 const RADAR_LABELS = [
-  {
-    nameX: "180",
-    nameY: "18",
-    scoreX: "180",
-    scoreY: "38",
-    textAnchor: "middle",
-    name: "Specialization",
-    score: "55",
-  },
-  {
-    nameX: "274",
-    nameY: "234",
-    scoreX: "274",
-    scoreY: "216",
-    textAnchor: "start",
-    name: "Credibility",
-    score: "62",
-  },
-  {
-    nameX: "86",
-    nameY: "234",
-    scoreX: "86",
-    scoreY: "216",
-    textAnchor: "end",
-    name: "Coordination",
-    score: "34",
-  },
+  { x: "180", y: "34", textAnchor: "middle", name: "Specialization" },
+  { x: "252", y: "222", textAnchor: "start", name: "Credibility" },
+  { x: "108", y: "222", textAnchor: "end", name: "Coordination" },
 ] as const;
 
 export const WorkHeroLayout = ({
@@ -83,8 +33,6 @@ export const WorkHeroLayout = ({
   primaryCtaHref,
   secondaryCtaLabel,
   secondaryCtaHref,
-  diagnosticTitle,
-  diagnosticTag,
   verdictLabel,
   verdictValue,
   findingsLabel,
@@ -134,68 +82,35 @@ export const WorkHeroLayout = ({
 
         <div
           id="hero-diagnostic"
-          className="rizom-diagnostic-panel relative z-[2] w-full max-w-[540px] rounded-[14px] border border-accent/30 px-[18px] py-5 opacity-0 animate-hero-rise [animation-delay:0.75s] md:rounded-2xl md:px-[30px] md:pt-7 md:pb-[26px] max-[1100px]:mx-auto max-[1100px]:max-w-[520px] max-[768px]:mb-14 lg:ml-auto lg:col-start-2 lg:row-start-1 lg:row-span-2"
+          className="rizom-diagnostic-panel relative z-[2] w-full max-w-[500px] rounded-[14px] border border-accent/30 px-[18px] py-5 opacity-0 animate-hero-rise [animation-delay:0.75s] md:rounded-2xl md:px-[30px] md:pt-5 md:pb-[26px] max-[1100px]:mx-auto max-[1100px]:max-w-[480px] max-[768px]:mb-14 lg:ml-auto lg:col-start-2 lg:row-start-1 lg:row-span-2"
         >
           <div className="rizom-diagnostic-panel-bar absolute inset-x-0 top-0 h-[2px] rounded-t-2xl" />
-          <div className="mb-0 flex items-baseline justify-between gap-4 border-b border-white/12 pb-3 md:mb-4 md:pb-4">
-            <span className="font-mono text-[9px] uppercase tracking-[0.26em] text-[var(--color-work-diagnostic-label)] md:text-[10.5px]">
-              {diagnosticTitle}
-            </span>
-            <span className="inline-flex items-center gap-2 font-mono text-[8px] uppercase tracking-[0.18em] text-theme-light md:text-[9.5px] md:tracking-[0.15em]">
-              <span aria-hidden className="inline-block h-[5px] w-[5px] animate-pulse rounded-full bg-accent" />
-              {diagnosticTag}
-            </span>
-          </div>
 
-          <div className="relative my-3 py-3 md:my-4 md:py-4">
-            <span aria-hidden className="pointer-events-none absolute left-0 top-0 h-[10px] w-[10px] border-l border-t border-accent/50 md:h-[14px] md:w-[14px]" />
-            <span aria-hidden className="pointer-events-none absolute right-0 top-0 h-[10px] w-[10px] border-r border-t border-accent/50 md:h-[14px] md:w-[14px]" />
-            <span aria-hidden className="pointer-events-none absolute left-0 bottom-0 h-[10px] w-[10px] border-b border-l border-accent/50 md:h-[14px] md:w-[14px]" />
-            <span aria-hidden className="pointer-events-none absolute right-0 bottom-0 h-[10px] w-[10px] border-b border-r border-accent/50 md:h-[14px] md:w-[14px]" />
+          <div className="relative pb-2 md:pb-3">
             <svg
-              viewBox="0 0 360 250"
+              viewBox="0 4 360 248"
               className="block h-auto w-full"
               role="img"
               aria-label="Three-axis TMS radar — Specialization, Credibility, Coordination"
             >
-              <g opacity="0.95">
-                {RADAR_RINGS.map((points) => (
-                  <polygon key={points} className={RADAR_RING_CLASS} points={points} />
-                ))}
-                <polygon className={RADAR_OUTER_RING_CLASS} points={RADAR_OUTER_POINTS} />
-                {RADAR_AXES.map(({ x2, y2 }) => (
-                  <line key={`${x2}-${y2}`} className={RADAR_AXIS_CLASS} x1="180" y1="150" x2={x2} y2={y2} />
-                ))}
-              </g>
-              <g>
-                {RADAR_GAPS.map(({ x1, y1, x2, y2 }) => (
-                  <line key={`${x1}-${y1}`} className={RADAR_GAP_CLASS} x1={x1} y1={y1} x2={x2} y2={y2} />
-                ))}
-                <polygon className={RADAR_SHAPE_CLASS} points={RADAR_DATA_POINTS} />
-                {RADAR_NODES.map(({ cx, cy }) => (
-                  <circle key={`${cx}-${cy}`} className={RADAR_NODE_CLASS} cx={cx} cy={cy} r="4" />
-                ))}
-              </g>
-              <g>
-                {RADAR_LABELS.map(({ nameX, nameY, scoreX, scoreY, textAnchor, name, score }) => (
-                  <g key={name}>
-                    <text className={RADAR_LABEL_CLASS} x={nameX} y={nameY} textAnchor={textAnchor}>
-                      {name}
-                    </text>
-                    <text className={RADAR_SCORE_CLASS} x={scoreX} y={scoreY} textAnchor={textAnchor}>
-                      {score}
-                    </text>
-                  </g>
-                ))}
-              </g>
+              <polygon className={RADAR_OUTER_RING_CLASS} points={RADAR_OUTER_POINTS} />
+              <polygon className={RADAR_SHAPE_CLASS} points={RADAR_DATA_POINTS} />
+              {RADAR_NODES.map(({ cx, cy }) => (
+                <circle key={`${cx}-${cy}`} className={RADAR_NODE_CLASS} cx={cx} cy={cy} r="4" />
+              ))}
+              {RADAR_LABELS.map(({ x, y, textAnchor, name }) => (
+                <text key={name} className={RADAR_LABEL_CLASS} x={x} y={y} textAnchor={textAnchor}>
+                  {name}
+                </text>
+              ))}
             </svg>
           </div>
 
-          <div className="border-t border-white/12 py-3 md:pt-5 md:pb-5">
-            <span className="block font-mono text-[8px] uppercase tracking-[0.26em] text-theme-light md:text-[9.5px] md:tracking-[0.22em]">
+          <div className="flex items-baseline justify-between gap-5 border-t border-white/12 py-[18px]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-theme-light">
               {verdictLabel}
             </span>
-            <span className="mt-1.5 block font-display text-[22px] font-semibold leading-[1.08] tracking-[-0.3px] text-theme md:mt-2 md:text-[26px] md:tracking-[-0.4px]">
+            <span className="font-display italic text-[22px] font-medium tracking-[-0.015em] text-theme [font-variation-settings:'opsz'_96]">
               {verdictValue}
             </span>
           </div>

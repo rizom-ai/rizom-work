@@ -11,8 +11,6 @@ export interface WorkHeroContent {
   primaryCtaHref: string;
   secondaryCtaLabel: string;
   secondaryCtaHref: string;
-  diagnosticTitle: string;
-  diagnosticTag: string;
   verdictLabel: string;
   verdictValue: string;
   findingsLabel: string;
