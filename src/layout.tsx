@@ -54,7 +54,7 @@ const NAV_LINKS = [
 ];
 
 const PRIMARY_CTA = {
-  href: "https://typeform.com",
+  href: "https://form.typeform.com/to/NGqo9Fnf",
   label: "Take the quiz",
 };
 
@@ -100,7 +100,7 @@ export const WorkLayout = ({
       links={[
         ...FOOTER_LINKS,
         ...socialLinksToWorkLinks(siteInfo, ["linkedin"]),
-        { href: "mailto:hello@rizom.ai", label: "Email" },
+        { href: "mailto:contact@rizom.ai", label: "Email" },
       ]}
     />
   </RizomFrame>
