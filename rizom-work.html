@@ -487,7 +487,8 @@ footer .foot-links a:hover{color:var(--text)}
      the radar's color memory + verdict line carry the meaning instead of crowded text */
   .diagnostic{padding:24px 22px 22px;max-width:100%}
   .radar .axis-label{display:none}
-  .verdict-value{font-size:22px}
+  .diag-verdict{gap:12px}
+  .verdict-value{font-size:22px;line-height:1.05;white-space:nowrap}
   .findings-list li{font-size:13px}
 
   /* Answer / Problem */
@@ -560,6 +561,16 @@ footer .foot-links a:hover{color:var(--text)}
   footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
   footer .foot-left{flex-direction:column;gap:6px}
   footer .foot-links{flex-wrap:wrap;justify-content:center;gap:16px}
+}
+
+@media(max-width:420px){
+  .diagnostic{padding-left:16px;padding-right:16px}
+  .diag-verdict{flex-direction:column;align-items:flex-start;gap:6px;padding:16px 0}
+  .verdict-value{text-align:left;font-size:20px}
+}
+
+@media(max-width:360px){
+  .verdict-value{font-size:18px}
 }
 </style>
 </head>

@@ -693,6 +693,18 @@
     .ecosystem-grid { grid-template-columns: 1fr; gap: 0; }
     .eco-block + .eco-block { margin-top: 28px; }
   }
+
+  @media (max-width: 420px) {
+    .diagnostic { padding-left: 16px; padding-right: 16px; }
+    .diag-row { flex-direction: column; align-items: flex-start; gap: 6px; padding: 16px 0; }
+    .diag-row .label-mono,
+    .diag-row .value-display { white-space: nowrap; }
+    .diag-row .value-display { font-size: 20px; line-height: 1.05; text-align: left; }
+  }
+
+  @media (max-width: 360px) {
+    .diag-row .value-display { font-size: 18px; }
+  }
 </style>
 </head>
 <body>

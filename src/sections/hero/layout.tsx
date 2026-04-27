@@ -83,7 +83,7 @@ export const WorkHeroLayout = ({
 
         <div
           id="hero-diagnostic"
-          className="rizom-diagnostic-panel relative z-[2] w-full max-w-[500px] rounded-[14px] border border-accent/30 px-[18px] py-5 opacity-0 animate-hero-rise [animation-delay:0.75s] md:rounded-2xl md:px-[30px] md:pt-5 md:pb-[26px] max-[1100px]:mx-auto max-[1100px]:max-w-[480px] max-[768px]:mb-14 lg:ml-auto lg:col-start-2 lg:row-start-1 lg:row-span-2"
+          className="rizom-diagnostic-panel relative z-[2] w-full max-w-[500px] rounded-[14px] border border-accent/30 px-[18px] py-5 opacity-0 animate-hero-rise [animation-delay:0.75s] md:rounded-2xl md:px-[30px] md:pt-5 md:pb-[26px] max-[1100px]:mx-auto max-[1100px]:max-w-[480px] max-[768px]:mb-14 max-[380px]:px-4 lg:ml-auto lg:col-start-2 lg:row-start-1 lg:row-span-2"
         >
           <div className="rizom-diagnostic-panel-bar absolute inset-x-0 top-0 h-[2px] rounded-t-2xl" />
 
@@ -107,11 +107,11 @@ export const WorkHeroLayout = ({
             </svg>
           </div>
 
-          <div className="flex items-baseline justify-between gap-5 border-t border-white/12 py-[18px]">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-theme-light">
+          <div className="flex items-baseline justify-between gap-4 border-t border-white/12 py-[18px] max-[420px]:flex-col max-[420px]:items-start max-[420px]:gap-1.5 max-[420px]:py-4">
+            <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.18em] text-theme-light">
               {verdictLabel}
             </span>
-            <span className="font-display italic text-[22px] font-medium tracking-[-0.015em] text-theme [font-variation-settings:'opsz'_96]">
+            <span className="whitespace-nowrap text-right font-display italic text-[22px] font-medium leading-[1.05] tracking-[-0.015em] text-theme [font-variation-settings:'opsz'_96] max-[420px]:text-left max-[420px]:text-[20px] max-[360px]:text-[18px]">
               {verdictValue}
             </span>
           </div>
