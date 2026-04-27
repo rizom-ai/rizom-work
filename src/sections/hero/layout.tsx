@@ -71,14 +71,6 @@ export const WorkHeroLayout = ({
             </div>
           </div>
 
-          <a
-            href="#hero-diagnostic"
-            aria-label="Scroll to diagnostic"
-            className="mt-12 inline-flex items-center gap-3 self-start font-mono text-[10px] uppercase tracking-[0.28em] text-theme-light opacity-0 animate-hero-rise [animation-delay:0.85s] hover:text-theme lg:hidden"
-          >
-            <span aria-hidden className="block h-px w-10 bg-current/50" />
-            <span>Scroll</span>
-          </a>
         </div>
 
         <div
@@ -149,10 +141,6 @@ export const WorkHeroLayout = ({
         </div>
       </div>
 
-      <a className="scroll-cue max-lg:hidden" href="#problem" aria-label="Scroll to content">
-        <span>Scroll</span>
-        <span className="scroll-cue-line"></span>
-      </a>
     </Section>
   );
 };
