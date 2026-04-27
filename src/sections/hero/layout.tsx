@@ -1,6 +1,7 @@
 import type { JSX } from "preact";
 import type { WorkHeroContent } from "./schema";
-import { Button, Section, renderHighlightedText } from "@rizom/ui";
+import { Section, renderHighlightedText } from "@rizom/ui";
+import { WorkButton, newTabProps } from "../../link-targets";
 
 const HIGHLIGHT_CLS = "italic text-accent";
 const RADAR_OUTER_RING_CLASS = "fill-none stroke-white/26 [stroke-width:1.5]";
@@ -61,12 +62,12 @@ export const WorkHeroLayout = ({
             </div>
 
             <div className="flex flex-col gap-3 opacity-0 animate-hero-rise [animation-delay:0.6s] md:flex-row md:flex-wrap md:gap-[14px] max-[768px]:[&_.rizom-btn]:w-full max-[768px]:[&_.rizom-btn]:justify-center max-[768px]:[&_.rizom-btn]:px-6 max-[768px]:[&_.rizom-btn]:py-[15px] lg:col-start-1 lg:row-start-2">
-              <Button href={primaryCtaHref} variant="primary" block>
+              <WorkButton href={primaryCtaHref} variant="primary" block>
                 {primaryCtaLabel}
-              </Button>
-              <Button href={secondaryCtaHref} variant="secondary" block>
+              </WorkButton>
+              <WorkButton href={secondaryCtaHref} variant="secondary" block>
                 {secondaryCtaLabel}
-              </Button>
+              </WorkButton>
             </div>
           </div>
 
@@ -140,6 +141,7 @@ export const WorkHeroLayout = ({
 
           <a
             href={diagnosticCtaHref}
+            {...newTabProps(diagnosticCtaHref)}
             className="mt-3 inline-flex w-full items-center justify-center rounded-[10px] border border-white/18 px-3 py-2.5 font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/88 transition-colors hover:border-accent/60 hover:bg-accent/8 hover:text-theme md:mt-5 md:px-4 md:py-3 md:text-[10.5px]"
           >
             {diagnosticCtaLabel}

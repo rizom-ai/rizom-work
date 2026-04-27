@@ -1,5 +1,6 @@
 import type { JSX } from "preact";
-import { Button, Section, renderHighlightedText } from "@rizom/ui";
+import { Section, renderHighlightedText } from "@rizom/ui";
+import { WorkButton } from "../../link-targets";
 import { WORK_KICKER, WORK_RULE } from "../styles";
 import type { WorkshopContent } from "./schema";
 
@@ -53,9 +54,9 @@ export const WorkshopLayout = ({
       </div>
 
       <div className="mt-[72px] text-center max-[768px]:mt-12 max-[768px]:[&_.rizom-btn]:w-full max-[768px]:[&_.rizom-btn]:justify-center">
-        <Button href={ctaHref} variant="primary">
+        <WorkButton href={ctaHref} variant="primary">
           {ctaLabel}
-        </Button>
+        </WorkButton>
       </div>
     </Section>
   );

@@ -1,6 +1,7 @@
 import type { JSX } from "preact";
 import type { CloserContent } from "./schema";
-import { Button, Section, renderHighlightedText } from "@rizom/ui";
+import { Section, renderHighlightedText } from "@rizom/ui";
+import { WorkButton } from "../../link-targets";
 import { WORK_RULE } from "../styles";
 
 const HIGHLIGHT_CLS = "italic text-accent font-normal";
@@ -25,12 +26,12 @@ export const CloserLayout = ({
         {renderHighlightedText(headline, HIGHLIGHT_CLS)}
       </h2>
       <div className="mt-14 flex flex-wrap justify-center gap-5 max-[768px]:mt-10 max-[768px]:flex-col max-[768px]:items-stretch max-[768px]:gap-3 max-[768px]:[&_.rizom-btn]:w-full max-[768px]:[&_.rizom-btn]:justify-center max-[768px]:[&_.rizom-btn]:px-6 max-[768px]:[&_.rizom-btn]:py-4 max-[768px]:[&_.rizom-btn]:text-[16px]">
-        <Button href={primaryCtaHref} variant="primary" className="text-[18px] md:px-11 md:py-5">
+        <WorkButton href={primaryCtaHref} variant="primary" className="text-[18px] md:px-11 md:py-5">
           {primaryCtaLabel}
-        </Button>
-        <Button href={secondaryCtaHref} variant="secondary" className="text-[18px] md:px-11 md:py-5">
+        </WorkButton>
+        <WorkButton href={secondaryCtaHref} variant="secondary" className="text-[18px] md:px-11 md:py-5">
           {secondaryCtaLabel}
-        </Button>
+        </WorkButton>
       </div>
     </Section>
   );
