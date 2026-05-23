@@ -6,6 +6,25 @@ logLevel: info
 domain: rizom.work
 
 plugins:
+  auth-service:
+    setupEmail:
+      to: ${SETUP_EMAIL_TO}
+      subject: Set up your Rizom Work passkey
+      body: |
+        Hi,
+
+        Your Rizom Work MCP/browser access is ready.
+
+        Set up your passkey:
+        {{setupUrl}}
+
+        This link is single-use. Do not forward it.
+        It expires at {{expiresAt}}.
+
+        After setup, connect your MCP client to {{origin}}/mcp and use the browser/passkey OAuth flow.
+  email-resend:
+    apiKey: ${SETUP_EMAIL_API_KEY}
+    from: ${SETUP_EMAIL_FROM}
   directory-sync:
     git:
       repo: rizom-ai/rizom-work-content
