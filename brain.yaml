@@ -1,4 +1,4 @@
-brain: ranger
+brain: relay
 preset: default
 
 # Instance settings
@@ -10,5 +10,3 @@ plugins:
     git:
       repo: rizom-ai/rizom-work-content
       authToken: ${GIT_SYNC_TOKEN}
-  mcp:
-    authToken: ${MCP_AUTH_TOKEN}
